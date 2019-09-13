@@ -1,2 +1,26 @@
-<%= @user.name %><br>
-<img src="<%= @user.prof_image.url %>" style="width:240px;"><br>
+<div class="row">
+  <div class="col-sm-3">
+    <img src="<%= @user.prof_image.url %>" style="width:240px;">
+  </div>
+  <div class="col-sm-4">
+    <p>name: <%= @user.name %></p>
+    <p>equipment: </p>
+    <p>genre: </p>
+    <p>URL: </p>
+  </div>
+  <div class="col-sm-5">
+    introduction:
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-sm-12">
+    <ul class="nav nav-tabs nav-justified mb-3">
+      <li class="nav-item"><a href="#" class="nav-link">Photos</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">Favorites</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">Followings</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">Followers</a></li>
+    </ul>
+  </div>
+</div>

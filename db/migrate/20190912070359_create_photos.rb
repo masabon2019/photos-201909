@@ -7,7 +7,7 @@ class CreatePhotos < ActiveRecord::Migration[5.2]
       t.string :day
       t.string :comment
       t.string :image
-      #t.references :user, foreign_key: true
+      t.references :user, foreign_key: true
 
       t.timestamps
     end

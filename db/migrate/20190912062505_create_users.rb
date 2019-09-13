@@ -10,6 +10,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :self_introduction
       t.string :facebook
       t.string :twitter
+      t.string :prof_image
 
       t.timestamps
     end
