@@ -1,0 +1,62 @@
+<%= @user.name %>
+
+<div class="row">
+  <div class="col-sm-6 offset-sm-3">
+    
+    <%= form_with(model: @user, local: true) do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
+  
+      <div class="form-group">
+        <%=f.label "画像をアップロード" %>
+        <%= f.file_field :prof_image, class: 'form-control-file' %>
+      </div>
+    
+      <div class="form-group">
+        <%= f.label :name, 'Name' %>
+        <%= f.text_field :name, class: 'form-control', value: @user.name %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :email, 'Email' %>
+        <%= f.email_field :email, class: 'form-control', value: @user.email %>
+      </div>
+  
+      <div class="form-group">
+        <%= f.label :equipment, '機材' %>
+        <%= f.text_field :equipment, class: 'form-control', value: @user.equipment %>
+      </div>
+  
+      <div class="form-group">
+        <%= f.label :genre, 'ジャンル' %>
+        <%= f.text_field :genre, class: 'form-control', value: @user.genre %>
+      </div>
+  
+      <div class="form-group">
+        <%= f.label :url, 'URL' %>
+        <%= f.text_field :url, class: 'form-control', value: @user.url %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :self_introduction, '自己紹介' %>
+        <%= f.text_area :self_introduction, class: 'form-control', value: @user.self_introduction %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :password, 'Password' %>
+        <%= f.password_field :password, class: 'form-control' %>
+      </div>
+  
+      <div class="form-group">
+        <%= f.label :password_confirmation, 'Confirmation' %>
+        <%= f.password_field :password_confirmation, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.submit '更新', class: 'btn btn-primary' %>
+      </div>
+      
+      <% end %>
+
+
+</div>
+</div>

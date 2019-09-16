@@ -1,6 +1,19 @@
+
 <% if logged_in? %>
-<p>ログイン完了ユーザー:<%= current_user.name %></p>
-写真一覧ページ
+  <p>ログイン完了ユーザー:<%= current_user.name %></p>
+<p>写真一覧ページ</p>
+
+<div class="row">
+
+  <% @photos.each do |photo| %>
+    <div class="col-sm-3">
+      <a href="<%= photo_path(photo.id) %>">
+      <img src="<%= photo.image.url %>" style="width:100%;">
+      </a>
+      <p><%= link_to photo.user.name, user_path(photo.user) %></p>
+    </div>
+  <% end %>
+</div>
 
 <% else %>
   <div class="center jumbotron">
@@ -8,5 +21,15 @@
       <h1>Welcome to the Photos</h1>
       <%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>
     </div>
+  </div>
+
+  
+  <div class="row">
+  <% @photos.each do |photo| %>
+    <div class="col">
+      <img src="<%= photo.image.url %>" style="width:240px;"><br>
+      <%= photo.user.name %>
+    </div>
+  <% end %>
   </div>
 <% end %>

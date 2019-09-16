@@ -4,12 +4,12 @@
   </div>
   <div class="col-sm-4">
     <p>name: <%= @user.name %></p>
-    <p>equipment: </p>
-    <p>genre: </p>
-    <p>URL: </p>
+    <p>equipment: <%= @user.equipment %></p>
+    <p>genre: <%= @user.genre %></p>
+    <p>URL: <%= @user.url %></p>
   </div>
   <div class="col-sm-5">
-    introduction:
+    introduction: <%= @user.self_introduction %>
   </div>
 </div>
 
@@ -17,10 +17,11 @@
 <div class="row">
   <div class="col-sm-12">
     <ul class="nav nav-tabs nav-justified mb-3">
-      <li class="nav-item"><a href="#" class="nav-link">Photos</a></li>
+      <li class="nav-item"><a href="<%= user_path(@user) %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>">Photos <span class="badge badge-secondary">00</span></a></li>
       <li class="nav-item"><a href="#" class="nav-link">Favorites</a></li>
       <li class="nav-item"><a href="#" class="nav-link">Followings</a></li>
       <li class="nav-item"><a href="#" class="nav-link">Followers</a></li>
     </ul>
+    <%= render 'photos/photos', photos: @user.photos %>
   </div>
 </div>

@@ -1,25 +1,41 @@
 <h1>Sign up</h1>
 
-<%= form_with(model: @user, local: true) do |f| %>
 
-<%= render 'layouts/error_messages', model: f.object %>
+<div class="row">
+  <div class="col-sm-6 offset-sm-3">
+    
+    <%= form_with(model: @user, local: true) do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
 
-<%= f.label :name, 'Name' %>
-<%= f.text_field :name %>
-<br>
-<%= f.label :email, 'Email' %>
-<%= f.email_field :email %>
- <br>
- <%= f.label :password, 'Password' %>
- <%= f.password_field :password %>
- <br>
- <%= f.label :password_confirmation, 'Confirmation' %>
- <%= f.password_field :password_confirmation %>
- <br>
- 
-<%=f.label "画像をアップロード" %>
-<%= f.file_field :prof_image %></p>
+      <div class="form-group">
+        <%= f.label :name, 'Name' %>
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
+  
+      <div class="form-group">
+        <%= f.label :email, 'Email' %>
+        <%= f.email_field :email, class: 'form-control' %>
+      </div>
+  
+      <div class="form-group">
+        <%= f.label :password, 'Password' %>
+        <%= f.password_field :password, class: 'form-control' %>
+      </div>
+  
+      <div class="form-group">
+        <%= f.label :password_confirmation, 'Confirmation' %>
+        <%= f.password_field :password_confirmation, class: 'form-control' %>
+      </div>
+  
+      <div class="form-group">
+        <%=f.label "画像をアップロード" %>
+        <%= f.file_field :prof_image, class: 'form-control-file' %>
+      </div>
 
-<%= f.submit 'Sign up' %>
+      <div class="form-group">
+        <%= f.submit 'Sign up', class: 'btn btn-primary' %>
+      </div>
 
-<% end %>
+    <% end %>
+  </div>
+</div>

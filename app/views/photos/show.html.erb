@@ -1,0 +1,42 @@
+<h1>Photos#show</h1>
+<p>Find me in app/views/photos/show.html.erb</p>
+
+
+<div class="row">
+ <div class="col-sm-8">
+  <img src="<%= @photo.image.url %>" style="width:100%">
+ </div>
+</div>
+
+<div class="row">
+ <div class="col-sm-3">
+  <img src="<%= @user.prof_image.url %>" style="width:100%">
+  <a href="<%= user_path(@user) %>">By <%= @user[:name] %></a>
+  <%= @user[:id] %>
+ </div>
+ <div class="col-sm-5">
+  <table border="1">
+   <tr>
+    <td>タイトル</td>
+    <td><%= @photo[:title] %></td>
+   </tr>
+   <tr>
+    <td>撮影日</td>
+    <td><%= @photo[:day] %></td>
+   </tr>
+   <tr>
+    <td>機材</td>
+    <td><%= @photo[:equipment] %></td>
+   </tr>
+   <tr>
+    <td>コメント</td>
+    <td><%= @photo[:comment] %></td>
+   </tr>
+  </table>
+
+  
+  
+
+ </div>
+</div>
+
