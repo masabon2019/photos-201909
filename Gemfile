@@ -59,3 +59,7 @@ gem 'kaminari'
 gem 'carrierwave', '~> 1.0'
 
 gem 'pry-byebug', group: :development
+
+group :production do
+  gem 'pg', '>= 0.18', '< 2.0'
+end
