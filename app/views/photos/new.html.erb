@@ -1,11 +1,8 @@
-<h1>Photos#new 写真投稿ページ</h1>
-<p>current_user: <%= current_user %></p>
-
-
+<h1>写真投稿</h1>
 <% if logged_in? %>
 <div class="row">
+  <div class="col-sm-6 offset-sm-3">
   <%= form_with(model: @photo, local:true) do |f| %>
-  <div class="col-sm-8">
     <div class="form-group">
       <%=f.label "写真アップロード" %>
       <%= f.file_field :image, class: 'form-controller', rows: 5 %>
@@ -26,11 +23,10 @@
       <%= f.label :comment, 'コメント' %>
       <%= f.text_field :comment, class: 'form-control' %>
     </div>
-
-  </div>
-</div>
     <%= f.submit 'Post' , class: 'btn btn-primary' %>
   <% end %>
+  </div>
+</div>
 <% end %>
 
 

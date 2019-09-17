@@ -1,0 +1,17 @@
+<% if current_user.goodpress?(photo) %>
+  <%= form_with(model: current_user.goods.find_by(photo_id: photo.id), local: true, method: :delete) do |f| %>
+    <%= hidden_field_tag :photo_id, photo.id %>
+    <%= f.submit 'Ungood', class: 'btn btn-outline-secondary btn-sm' %>
+     <span class="badge badge-secondary"><%= photo.goods.count %></span>
+
+  <% end %>  
+<% else %>
+  <%= form_with(model: current_user.goods.build, local:true) do |f| %>
+    <%= hidden_field_tag :photo_id, photo.id %>
+    <%= f.submit 'Good', class: 'btn btn-outline-primary btn-sm' %>
+     <span class="badge badge-primary"><%= photo.goods.count %></span>
+
+  <% end %>
+<% end %>
+
+  

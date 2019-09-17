@@ -10,7 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_12_070359) do
+ActiveRecord::Schema.define(version: 2019_09_17_052119) do
+
+  create_table "bookmarks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "photo_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["photo_id"], name: "index_bookmarks_on_photo_id"
+    t.index ["user_id", "photo_id"], name: "index_bookmarks_on_user_id_and_photo_id", unique: true
+    t.index ["user_id"], name: "index_bookmarks_on_user_id"
+  end
+
+  create_table "goods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "photo_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["photo_id"], name: "index_goods_on_photo_id"
+    t.index ["user_id"], name: "index_goods_on_user_id"
+  end
 
   create_table "photos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -23,6 +42,16 @@ ActiveRecord::Schema.define(version: 2019_09_12_070359) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_photos_on_user_id"
+  end
+
+  create_table "relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "follow_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["follow_id"], name: "index_relationships_on_follow_id"
+    t.index ["user_id", "follow_id"], name: "index_relationships_on_user_id_and_follow_id", unique: true
+    t.index ["user_id"], name: "index_relationships_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -40,5 +69,11 @@ ActiveRecord::Schema.define(version: 2019_09_12_070359) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "bookmarks", "photos"
+  add_foreign_key "bookmarks", "users"
+  add_foreign_key "goods", "photos"
+  add_foreign_key "goods", "users"
   add_foreign_key "photos", "users"
+  add_foreign_key "relationships", "users"
+  add_foreign_key "relationships", "users", column: "follow_id"
 end

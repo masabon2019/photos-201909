@@ -2,11 +2,15 @@
 
 <div class="row">
   <% photos.each do |photo| %>
-    <div class="col">
+    <div class="col-sm-3">
       <a href="<%= photo_path(photo.id) %>"><img src="<%= photo.image.url %>" style="width:240px;"></a><br>
       <% if current_user == photo.user %>
           <%= link_to "DELETE", photo, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-secondary  btn-sm' %>
         <% end %>
+        <% @photo = photo %>
+      <%= render 'bookmarks/bookmark_button', photo: @photo %>
+    <%= render 'goods/good_button', photo: @photo %>
+
     </div>
   <% end %>
 </div>

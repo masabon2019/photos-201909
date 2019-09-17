@@ -1,5 +1,4 @@
-<h1>ユーザー詳細</h1>
-
+<h1>フォロー</h1>
 <div class="row">
   <div class="col-sm-3">
     <img src="<%= @user.prof_image.url %>" style="width:240px;">
@@ -28,6 +27,24 @@
       <li class="nav-item"><a href="<%= followings_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followings_user_path(@user)) %>">Followings <span class="badge badge-secondary"><%= @count_followings %></span></a></li>
       <li class="nav-item"><a href="<%= followers_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followers_user_path(@user)) %>">Followers <span class="badge badge-secondary"><%= @count_followers %></span></a></li>
     </ul>
-    <%= render 'photos/photos', photos: @user.photos %>
   </div>
 </div>
+    
+    
+  <% if @followings.any? %>
+  <div class="row">
+
+    <% @followings.each do |user| %>
+      <div class="col-sm-3">
+            <img src="<%= user.prof_image.url %>" style="width:240px;"><br>
+            <%= user.name %>
+            <!--フォローボタン-->
+            <%= render 'relationships/follow_button', user: user %>
+
+            <p><%= link_to 'View profile', user_path(user) %></p>
+      </div>
+      <% end %>
+		</div>
+    <%= paginate @followings %>
+  <% end %>
+  

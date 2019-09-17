@@ -1,13 +1,13 @@
 <% if users.any? %>
-  <ul class="list-unstyled">
+<div class="row">
     <% users.each do |user| %>
-    <li>
-      <%= user.name %>
+    <div class="col-sm-3">
       <img src="<%= user.prof_image.url %>" style="width:240px;"><br>
-      <%= user.self_introduction %>
+      <p><%= user.self_introduction %></p>
+      <%= user.name %>
       <p><%= link_to 'View profile', user_path(user) %></p>
-    </li>
+    </div>
     <% end %>
-  </ul>
   <%= paginate users %>
+  </div>
 <% end %>

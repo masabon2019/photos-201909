@@ -1,4 +1,4 @@
-<h1>ユーザー詳細</h1>
+<h1>お気に入り</h1>
 
 <div class="row">
   <div class="col-sm-3">
@@ -28,6 +28,19 @@
       <li class="nav-item"><a href="<%= followings_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followings_user_path(@user)) %>">Followings <span class="badge badge-secondary"><%= @count_followings %></span></a></li>
       <li class="nav-item"><a href="<%= followers_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followers_user_path(@user)) %>">Followers <span class="badge badge-secondary"><%= @count_followers %></span></a></li>
     </ul>
-    <%= render 'photos/photos', photos: @user.photos %>
+
   </div>
 </div>
+
+<div class="row">
+  <% @bookmarks.each do |bookmark| %>
+    <div class="col-sm-3">
+      <a href="<%= photo_path(bookmark.id) %>"><img src="<%= bookmark.image.url %>" style="width:240px;"></a>
+      <p><%= link_to bookmark.user.name, user_path(bookmark.user) %></p>
+      <%= render 'bookmarks/bookmark_button', photo: bookmark %>
+    <%= render 'goods/good_button', photo: bookmark %>
+    </div>
+  <% end %>
+
+</div>
+    <%= paginate @bookmarks %>

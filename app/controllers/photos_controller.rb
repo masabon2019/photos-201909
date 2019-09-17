@@ -1,6 +1,7 @@
 class PhotosController < ApplicationController
   before_action :require_user_logged_in, only: [:index, :new, :show, :edit]
   
+
   def index
   end
 
@@ -22,6 +23,8 @@ class PhotosController < ApplicationController
   end
 
   def edit
+    @photo = Photo.find(params[:id])
+    @user = User.find(@photo[:user_id])
   end
 
   def show
@@ -36,6 +39,15 @@ class PhotosController < ApplicationController
   end
 
   def update
+    @photo = Photo.find(params[:id])
+    
+    if @photo.update(photos_params)
+      flash[:success] = '写真情報は正常に更新されました'
+      redirect_to @photo
+    else
+      flash.now[:danger] = '写真情報は更新されませんでした'
+      render :edit
+    end
   end
   
   def photos_params

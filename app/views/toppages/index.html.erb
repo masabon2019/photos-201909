@@ -1,9 +1,8 @@
+<h1>写真一覧</h1>
 
 <% if logged_in? %>
-  <p>ログイン完了ユーザー:<%= current_user.name %></p>
-<p>写真一覧ページ</p>
 
-<div class="row">
+  <div class="row">
 
   <% @photos.each do |photo| %>
     <div class="col-sm-3">
@@ -11,9 +10,12 @@
       <img src="<%= photo.image.url %>" style="width:100%;">
       </a>
       <p><%= link_to photo.user.name, user_path(photo.user) %></p>
+      <%= render 'bookmarks/bookmark_button', photo: photo %>
+      <%= render 'goods/good_button', photo: photo %>
+
     </div>
   <% end %>
-</div>
+  </div>
 
 <% else %>
   <div class="center jumbotron">
