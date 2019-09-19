@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: hipzotkie
+  api_key: '581541535883623'
+  api_secret: R9Ncx_UyBMIOnYQT99gEIL0KUKI
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: hipzotkie
+  api_key: '581541535883623'
+  api_secret: R9Ncx_UyBMIOnYQT99gEIL0KUKI
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: hipzotkie
+  api_key: '581541535883623'
+  api_secret: R9Ncx_UyBMIOnYQT99gEIL0KUKI
+  enhance_image_tag: true
+  static_file_support: false
