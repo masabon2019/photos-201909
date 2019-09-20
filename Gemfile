@@ -66,3 +66,5 @@ end
 
 gem 'carrierwave'
 gem 'cloudinary'
+
+gem 'dotenv-rails'
