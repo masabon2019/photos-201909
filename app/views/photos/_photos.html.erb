@@ -4,6 +4,7 @@
   <% photos.each do |photo| %>
     <div class="col-sm-3">
       <a href="<%= photo_path(photo.id) %>"><img src="<%= photo.image.url %>" style="width:240px;"></a><br>
+  <%= cl_image_tag photo.image.url %>
       <% if current_user == photo.user %>
           <%= link_to "DELETE", photo, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-secondary  btn-sm' %>
         <% end %>
