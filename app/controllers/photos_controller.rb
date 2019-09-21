@@ -1,6 +1,6 @@
 class PhotosController < ApplicationController
   before_action :require_user_logged_in, only: [:index, :new, :show, :edit]
-  
+  before_action :correct_photo_user, only: [:edit]
 
   def index
   end
@@ -53,4 +53,14 @@ class PhotosController < ApplicationController
   def photos_params
     params.require(:photo).permit(:image, :title, :day, :equipment, :comment)
   end
+  
+  def correct_photo_user
+    @photo = Photo.find(params[:id])
+    @user = User.find(@photo[:user_id])
+    
+    unless current_user == @user
+      redirect_to root_url
+    end
+  end
+  
 end

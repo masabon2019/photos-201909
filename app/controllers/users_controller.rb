@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :require_user_logged_in, only: [:index, :show, :edit, :followings, :followers]
-  
+  before_action :correct_user, only: [:edit]
+
   def index
     @users = User.order(id: :desc).page(params[:page]).per(10)
   end
@@ -23,6 +24,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    @photos = @user.photos.order(id: :desc).page(params[:page])
     counts(@user)
   end
 
@@ -62,6 +64,14 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @bookmarks = @user.bookmark_photos.page(params[:page])
     counts(@user)
+  end
+
+  def correct_user
+    @user = User.find(params[:id])
+    
+    unless current_user == @user
+      redirect_to root_url
+    end
   end
 
   private
