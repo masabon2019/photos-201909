@@ -7,7 +7,8 @@ class User < ApplicationRecord
   validates :prof_image, presence: true
   validates :equipment, length: { maximum: 50 }
   validates :genre, length: { maximum: 50 }
-  validates :url, length: { maximum: 50 }
+  validates :url, length: { maximum: 50 },
+                  format: /\A#{URI::regexp(%w(http https))}\z/
   validates :self_introduction, length: { maximum: 255 }
   has_secure_password
   
