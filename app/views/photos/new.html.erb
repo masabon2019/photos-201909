@@ -3,6 +3,8 @@
 <div class="row">
   <div class="col-sm-6 offset-sm-3">
   <%= form_with(model: @photo, local:true) do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
+  
     <div class="form-group">
       <%=f.label "写真アップロード" %>
       <%= f.file_field :image, class: 'form-controller', rows: 5 %>

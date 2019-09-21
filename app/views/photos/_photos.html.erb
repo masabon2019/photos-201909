@@ -2,7 +2,7 @@
 
 <div class="row">
   <% photos.each do |photo| %>
-    <div class="col-sm-3">
+    <div class="col-sm-3 word-wrap">
       <a href="<%= photo_path(photo.id) %>"><img src="<%= photo.image.url %>" style="width:240px;"></a><br>
       <% if current_user == photo.user %>
           <%= link_to "DELETE", photo, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-secondary  btn-sm' %>

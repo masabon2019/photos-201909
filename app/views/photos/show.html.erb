@@ -14,21 +14,21 @@
   <a href="<%= user_path(@user) %>">By <%= @user[:name] %></a>
  </div>
  <div class="col-sm-8">
-  <table border="1" style="width:100%">
+  <table id="show-table">
    <tr>
-    <td>タイトル</td>
+    <th>タイトル</th>
     <td><%= @photo[:title] %></td>
    </tr>
    <tr>
-    <td>撮影日</td>
+    <th>撮影日</th>
     <td><%= @photo[:day] %></td>
    </tr>
    <tr>
-    <td>機材</td>
+    <th>機材</th>
     <td><%= @photo[:equipment] %></td>
    </tr>
    <tr>
-    <td>コメント</td>
+    <th>コメント</th>
     <td><%= @photo[:comment] %></td>
    </tr>
   </table>

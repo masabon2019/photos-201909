@@ -8,13 +8,13 @@
     <%= render 'relationships/follow_button', user: @user %>
 
   </div>
-  <div class="col-sm-4">
+  <div class="col-sm-4 word-wrap">
     <p>name: <%= @user.name %></p>
     <p>equipment: <%= @user.equipment %></p>
     <p>genre: <%= @user.genre %></p>
     <p>URL: <%= @user.url %></p>
   </div>
-  <div class="col-sm-5">
+  <div class="col-sm-5 word-wrap">
     introduction: <%= @user.self_introduction %>
   </div>
 </div>

@@ -5,7 +5,7 @@
   <div class="row">
 
   <% @photos.each do |photo| %>
-    <div class="col-sm-3">
+    <div class="col-sm-3 word-wrap">
       <a href="<%= photo_path(photo.id) %>">
       <img src="<%= photo.image.url %>" style="width:100%;">
       </a>
@@ -28,9 +28,9 @@
   
   <div class="row">
   <% @photos.each do |photo| %>
-    <div class="col">
-      <img src="<%= photo.image.url %>" style="width:240px;"><br>
-      <%= photo.user.name %>
+    <div class="col-sm-3 word-wrap">
+      <p><img src="<%= photo.image.url %>" style="width:240px;"></p>
+      <p><%= photo.user.name %></p>
     </div>
   <% end %>
   </div>

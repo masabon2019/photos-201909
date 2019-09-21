@@ -1,8 +1,14 @@
 class Photo < ApplicationRecord
   belongs_to :user
-  mount_uploader :image, ImageUploader
   
   validates :image, presence: true
+  validates :title, presence: true, length: { maximum: 255 }
+  validates :day, length: { maximum: 20 }
+  validates :equipment, length: { maximum: 50 }
+  validates :comment, length: { maximum: 255 }
+
+  mount_uploader :image, ImageUploader
+  
   
   has_many :bookmarks, dependent: :destroy
   has_many :bookmark_users, through: :bookmarks, source: :user

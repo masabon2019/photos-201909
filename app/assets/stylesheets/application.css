@@ -21,3 +21,25 @@ h1 {
     background-color: #eee;
     font-size: large;
 }
+
+.word-wrap{
+    word-wrap: break-word;
+}
+
+#show-table{
+    width:100%;
+    table-layout:fixed;
+    border:1px #eee solid;
+}
+
+#show-table th{
+    border:1px #eee solid;
+    width:20%;
+    padding: 4px;
+}
+
+#show-table td{
+    border:1px #eee solid;
+    word-wrap: break-word;
+    padding: 4px;
+}
