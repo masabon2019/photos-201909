@@ -7,8 +7,7 @@ class User < ApplicationRecord
   validates :prof_image, presence: true
   validates :equipment, length: { maximum: 50 }
   validates :genre, length: { maximum: 50 }
-  validates :url, length: { maximum: 50 },
-                  format: /\A#{URI::regexp(%w(http https))}\z/
+  validates :url, length: { maximum: 255 }, format: /\A#{URI::regexp(%w(http https))}\z/, if: :correct_url?
   validates :self_introduction, length: { maximum: 255 }
   has_secure_password
   
@@ -66,4 +65,9 @@ class User < ApplicationRecord
   def goodpress?(other_photo)
     self.good_photos.include?(other_photo)
   end
+  
+  def correct_url?
+    self.url != nil
+  end
+
 end
