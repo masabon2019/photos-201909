@@ -29,3 +29,6 @@
 /.env
 
 /public/uploads
+
+# Mac
+.DS_Store
