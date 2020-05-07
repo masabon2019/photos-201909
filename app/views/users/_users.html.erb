@@ -5,7 +5,7 @@
       <img src="<%= user.prof_image.url %>" style="width:240px;"><br>
       <p><%= user.self_introduction %></p>
       <p> <%= user.name %></p>
-      <p><%= link_to 'View profile', user_path(user) %></p>
+      <p><%= link_to 'プロフィール', user_path(user) %></p>
     </div>
     <% end %>
   <%= paginate users %>

@@ -1,4 +1,4 @@
-<h1>写真一覧</h1>
+<h1>写真一覧（新着順）</h1>
 
 <% if logged_in? %>
 
@@ -21,11 +21,11 @@
   <div class="center jumbotron">
     <div class="text-center">
       <h1>Welcome to the Photos</h1>
-      <%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>
+      <%= link_to 'ユーザー登録', signup_path, class: 'btn btn-lg btn-primary' %>
     </div>
   </div>
 
-  
+
   <div class="row">
   <% @photos.each do |photo| %>
     <div class="col-sm-3 word-wrap">

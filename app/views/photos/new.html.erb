@@ -4,7 +4,7 @@
   <div class="col-sm-6 offset-sm-3">
   <%= form_with(model: @photo, local:true) do |f| %>
   <%= render 'layouts/error_messages', model: f.object %>
-  
+
     <div class="form-group">
       <%=f.label "写真アップロード" %>
       <%= f.file_field :image, class: 'form-controller', rows: 5 %>
@@ -25,10 +25,8 @@
       <%= f.label :comment, 'コメント' %>
       <%= f.text_field :comment, class: 'form-control' %>
     </div>
-    <%= f.submit 'Post' , class: 'btn btn-primary' %>
+    <%= f.submit '投稿する' , class: 'btn btn-primary' %>
   <% end %>
   </div>
 </div>
 <% end %>
-
-
