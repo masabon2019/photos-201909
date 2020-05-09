@@ -10,8 +10,11 @@
       <img src="<%= photo.image.url %>" style="width:100%;">
       </a>
       <p><%= link_to photo.user.name, user_path(photo.user) %></p>
-      <%= render 'bookmarks/bookmark_button', photo: photo %>
-      <%= render 'goods/good_button', photo: photo %>
+
+      <% if current_user != photo.user %>
+        <%= render 'bookmarks/bookmark_button', photo: photo %>
+        <%= render 'goods/good_button', photo: photo %>
+      <% end %>
 
     </div>
   <% end %>

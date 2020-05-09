@@ -6,11 +6,11 @@
       <a href="<%= photo_path(photo.id) %>"><img src="<%= photo.image.url %>" style="width:240px;"></a><br>
       <% if current_user == photo.user %>
           <%= link_to "DELETE", photo, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-secondary  btn-sm' %>
-        <% end %>
+      <% else %>
         <% @photo = photo %>
-      <%= render 'bookmarks/bookmark_button', photo: @photo %>
-    <%= render 'goods/good_button', photo: @photo %>
-
+        <%= render 'bookmarks/bookmark_button', photo: @photo %>
+        <%= render 'goods/good_button', photo: @photo %>
+      <% end %>
     </div>
   <% end %>
 </div>
