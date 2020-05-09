@@ -43,3 +43,62 @@ h1 {
     word-wrap: break-word;
     padding: 4px;
 }
+.prof_image_wrapper {
+  position: relative;
+  padding: 10px 0;
+
+  height:280px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+}
+.prof_image {
+  margin: 0 auto;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  overflow-x: hidden;
+}
+.prof_image img {
+  object-fit: cover;
+  width: 180px;
+  height: 180px;
+}
+.prof_text {
+  display: block;
+  text-align: center;
+}
+.prof_followbtn{
+  text-align: center;
+  margin-top: 24px;
+}
+
+/*　フォロー、フォロワー蘭のユーザーアイコン表示　*/
+.userIcon__wrapper {
+  position: relative;
+  padding: 10px 0;
+  height:280px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+}
+.userIcon__image {
+  margin: 0 auto;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  overflow-x: hidden;
+}
+.userIcon__image img {
+  object-fit: cover;
+  width: 180px;
+  height: 180px;
+}
+.userIcon__text {
+  display: block;
+  text-align: center;
+}
+.prof_followbtn{
+  text-align: center;
+  margin-top: 24px;
+}

@@ -1,11 +1,17 @@
-<h1>プロフィール</h1>
+<h1><%= @user.name %>さんのプロフィール</h1>
 
 <div class="row">
   <div class="col-sm-3">
-    <img src="<%= @user.prof_image.url %>" style="width:240px;">
+    <div class="prof_image_wrapper">
+      <div class="prof_image">
+        <img src="<%= @user.prof_image.url %>">
+      </div>
+      <div class="prof_followbtn">
+        <!--フォローボタン-->
+        <%= render 'relationships/follow_button', user: @user %>
+      </div>
+    </div>
 
-    <!--フォローボタン-->
-    <%= render 'relationships/follow_button', user: @user %>
 
   </div>
   <div class="col-sm-4 word-wrap">

@@ -1,11 +1,16 @@
 <% if users.any? %>
 <div class="row">
     <% users.each do |user| %>
-    <div class="col-sm-3 word-wrap">
-      <img src="<%= user.prof_image.url %>" style="width:240px;"><br>
-      <p><%= user.self_introduction %></p>
-      <p> <%= user.name %></p>
-      <p><%= link_to 'プロフィール', user_path(user) %></p>
+    <div class="col-lg-3 col-md-4 word-wrap">
+      <div class="prof_image_wrapper">
+        <div class="prof_image">
+          <a href="<%= user_path(user) %>"><img src="<%= user.prof_image.url %>"></a>
+        </div>
+        <div class="prof_text">
+          <p><%= user.self_introduction %></p>
+          <p> <a href="<%= user_path(user) %>"><%= user.name %></a></p>
+        </div>
+      </div>
     </div>
     <% end %>
   <%= paginate users %>
