@@ -124,3 +124,27 @@ h1 {
   padding: 0;
 
 }
+/* User投稿一覧ページ　*/
+.userPhotoList__box{
+  background-color: #000;
+  width: 240px;
+  height:180px;
+  overflow: hidden;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+.userPhotoList__box img {
+  width: 100%;
+}
+/* All投稿一覧ページ　*/
+.allPhotoList__box {
+  background-color: #000;
+  width: 240px;
+  height:180px;
+  overflow: hidden;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+.allPhotoList__box img {
+  width: 100%;
+}

@@ -6,9 +6,11 @@
 
   <% @photos.each do |photo| %>
     <div class="col-sm-3 word-wrap">
+      <div class="allPhotoList__box">
       <a href="<%= photo_path(photo.id) %>">
-      <img src="<%= photo.image.url %>" style="width:100%;">
+      <img src="<%= photo.image.url %>">
       </a>
+      </div>
       <p><%= link_to photo.user.name, user_path(photo.user) %></p>
 
       <% if current_user != photo.user %>
