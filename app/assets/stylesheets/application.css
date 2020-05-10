@@ -50,7 +50,7 @@ h1 {
   height:280px;
   margin-right: 10px;
   margin-bottom: 20px;
-  background-color: #f9f9f9;
+  background-color: #fff;
 }
 .prof_image {
   margin: 0 auto;
@@ -80,7 +80,7 @@ h1 {
   height:280px;
   margin-right: 10px;
   margin-bottom: 20px;
-  background-color: #f9f9f9;
+  background-color: #fff;
 }
 .userIcon__image {
   margin: 0 auto;
@@ -101,4 +101,26 @@ h1 {
 .prof_followbtn{
   text-align: center;
   margin-top: 24px;
+}
+/* 投稿写真詳細ページ　*/
+.postimage__wrapper {
+  margin: 0 auto;
+  max-width: 640px;
+}
+.postimage__wrapper img{
+  width: 100%;
+}
+.postImgEvaluationBtns__wrapper {
+  width: 100%;
+  margin: 24px 0;
+  text-align: center;
+}
+.postImgEditBtn__wrapper{
+  width: 100%;
+}
+.postImgEditBtn {
+  margin-bottom: 100px;
+  margin-top: 36px;
+  padding: 0;
+
 }
