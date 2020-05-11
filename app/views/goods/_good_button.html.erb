@@ -4,7 +4,7 @@
     <%= f.submit 'Ungood', class: 'btn btn-outline-secondary btn-sm' %>
      <span class="badge badge-secondary"><%= photo.goods.count %></span>
 
-  <% end %>  
+  <% end %>
 <% else %>
   <%= form_with(model: current_user.goods.build, local:true) do |f| %>
     <%= hidden_field_tag :photo_id, photo.id %>
@@ -13,5 +13,3 @@
 
   <% end %>
 <% end %>
-
-  

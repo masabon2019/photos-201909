@@ -1,6 +1,6 @@
 <h1>ユーザー登録情報更新</h1>
 <div class="row">
-  <div class="col-sm-6 offset-sm-3">
+  <div class="col-lg-6 offset-lg-3">
 
     <%= form_with(model: @user, local: true) do |f| %>
     <%= render 'layouts/error_messages', model: f.object %>
@@ -12,7 +12,7 @@
 
       <div class="form-group">
         <%= f.label :name, '名前' %>
-        <%= f.text_field :name, class: 'form-control', value: @user.name %>
+        <%= f.text_field :name, class: 'form-control', value: @user.name  %>
       </div>
 
       <div class="form-group">
@@ -40,12 +40,9 @@
         <%= f.text_area :self_introduction, class: 'form-control', value: @user.self_introduction %>
       </div>
 
-      <div class="form-group">
-        <%= f.submit '更新', class: 'btn btn-primary' %>
+      <div class="form-group offset-5">
+        <%= f.submit '更新する', class: 'btn btn-primary' %>
       </div>
-
       <% end %>
-
-
-</div>
+  </div>
 </div>

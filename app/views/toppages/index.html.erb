@@ -25,16 +25,17 @@
 <% else %>
   <div class="center jumbotron">
     <div class="text-center">
-      <h1>Welcome to the Photos</h1>
+      <h1>Welcome to the PHOTOS</h1>
       <%= link_to 'ユーザー登録', signup_path, class: 'btn btn-lg btn-primary' %>
     </div>
   </div>
 
-
   <div class="row">
   <% @photos.each do |photo| %>
     <div class="col-sm-3 word-wrap">
+      <div class="allPhotoList__box">
       <p><img src="<%= photo.image.url %>" style="width:240px;"></p>
+    </div>
       <p><%= photo.user.name %></p>
     </div>
   <% end %>
