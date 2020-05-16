@@ -5,14 +5,14 @@ class UsersController < ApplicationController
   def index
     @users = User.order(id: :desc).page(params[:page]).per(8)
   end
-  
+
   def new
     @user = User.new
   end
 
   def create
     @user = User.new(user_params)
-    
+
     if @user.save
      flash[:success] = 'ユーザーを登録しました。'
      redirect_to @user
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
       render :new
     end
   end
-  
+
   def show
     @user = User.find(params[:id])
     @photos = @user.photos.order(id: :desc).page(params[:page])
@@ -31,10 +31,10 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
   end
-  
+
   def update
     @user = User.find(params[:id])
-    
+
     if @user.update(user_params)
       flash[:success] = 'ユーザー情報は正常に更新されました'
       redirect_to @user
@@ -46,20 +46,20 @@ class UsersController < ApplicationController
 
   def destroy
   end
-  
+
   #followingsの一覧
   def followings
     @user = User.find(params[:id])
     @followings = @user.followings.page(params[:page])
     counts(@user)
   end
-  
+
   def followers
     @user = User.find(params[:id])
     @followers = @user.followers.page(params[:page])
     counts(@user)
   end
-  
+
   def bookmarkings
     @user = User.find(params[:id])
     @bookmarks = @user.bookmark_photos.page(params[:page])
@@ -68,12 +68,12 @@ class UsersController < ApplicationController
 
   def correct_user
     @user = User.find(params[:id])
-    
+
     unless current_user == @user
       redirect_to root_url
     end
   end
-  
+
 
   private
     def user_params

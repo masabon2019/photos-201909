@@ -4,7 +4,7 @@
     <%= hidden_field_tag :photo_id, photo.id %>
     <%= f.submit 'Unbookmark', class: 'btn btn-outline-secondary btn-sm' %>
 
-  <% end %>  
+  <% end %>
 <% else %>
   <%= form_with(model: current_user.bookmarks.build, local:true) do |f| %>
     <%= hidden_field_tag :photo_id, photo.id %>
@@ -12,4 +12,3 @@
 
   <% end %>
 <% end %>
-
