@@ -10,13 +10,16 @@
           <%= link_to "削除", photo, method: :delete, data: { confirm: "削除してもいいですか?" }, class: 'btn btn-secondary  btn-sm' %>
       <% else %>
 
-        <div id="bookmarkBtn__area" class="btnId<%= photo.id %>">
-        <%= render 'bookmarks/bookmark_button', photo: photo %>
-        </div>
+      <div class="icon__wrapper">
 
         <div id="goodBtn__area" class="btnId<%= photo.id %>">
         <%= render 'goods/good_button', photo: photo %>
         </div>
+
+        <div id="bookmarkBtn__area" class="btnId<%= photo.id %>">
+        <%= render 'bookmarks/bookmark_button', photo: photo %>
+        </div>
+      </div>
 
       <% end %>
     </div>

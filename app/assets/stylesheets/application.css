@@ -126,25 +126,46 @@ h1 {
 }
 /* User投稿一覧ページ　*/
 .userPhotoList__box{
-  background-color: #000;
-  width: 240px;
-  height:180px;
-  overflow: hidden;
+  width: 100%;
   margin-top: 12px;
-  margin-bottom: 12px;
+  margin-bottom: 6px;
 }
 .userPhotoList__box img {
   width: 100%;
 }
-/* All投稿一覧ページ　*/
-.allPhotoList__box {
-  background-color: #000;
-  width: 240px;
-  height:180px;
-  overflow: hidden;
+/* Userお気に入りページ　*/
+.userBookmarkList__box {
+  width: 100%;
   margin-top: 12px;
-  margin-bottom: 12px;
+  margin-bottom: 6px;
+}
+.userBookmarkList__box img {
+  width: 100%;
+}
+
+
+/* 全ユーザー投稿写真一覧ページ　*/
+.allPhotoList__box {
+  width:100%;
+  margin-top: 12px;
+  margin-bottom: 6px;
 }
 .allPhotoList__box img {
   width: 100%;
+}
+/* お気に入り、いいねボタン　*/
+.icon__wrapper {
+  display: block;
+  text-align: right;
+  margin-bottom: 24px;
+}
+#goodBtn__area {
+  display: inline-block;
+}
+#bookmarkBtn__area {
+  display: inline-block;
+}
+.icon__wrapper .btn{
+  padding-right: 0px;
+  padding-top: 0px;
 }

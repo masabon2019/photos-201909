@@ -23,7 +23,6 @@
   </div>
 </div>
 
-
 <div class="row">
   <div class="col-sm-12">
     <ul class="nav nav-tabs nav-justified mb-3">
@@ -39,21 +38,25 @@
 <div class="row">
   <% @bookmarks.each do |bookmark| %>
     <div class="col-sm-3">
-      <a href="<%= photo_path(bookmark.id) %>"><img src="<%= bookmark.image.url %>" style="width:240px;"></a>
-      <p><%= link_to bookmark.user.name, user_path(bookmark.user) %></p>
+      <div class="userBookmarkList__box">
+        <a href="<%= photo_path(bookmark.id) %>"><img src="<%= bookmark.image.url %>"></a>
+        <div><%= link_to bookmark.user.name, user_path(bookmark.user) %></div>
 
-      <% if current_user != bookmark.user %>
-      <div id="bookmarkBtn__area" class="btnId<%= bookmark.id %>">
-        <%= render 'bookmarks/bookmark_button', photo: bookmark %>
-      </div>
+          <div class="icon__wrapper">
+          <% if current_user != bookmark.user %>
+          <div id="goodBtn__area" class="btnId<%= bookmark.id %>">
+            <%= render 'goods/good_button', photo: bookmark %>
+          </div>
 
-      <div id="goodBtn__area" class="btnId<%= bookmark.id %>">
-        <%= render 'goods/good_button', photo: bookmark %>
-      </div>
-      <% end %>
+          <div id="bookmarkBtn__area" class="btnId<%= bookmark.id %>">
+            <%= render 'bookmarks/bookmark_button', photo: bookmark %>
+          </div>
+          <% end %>
+          </div>
+
+        </div>
 
     </div>
   <% end %>
-
 </div>
     <%= paginate @bookmarks %>
