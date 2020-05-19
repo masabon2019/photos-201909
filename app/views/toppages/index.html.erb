@@ -14,8 +14,12 @@
       <p><%= link_to photo.user.name, user_path(photo.user) %></p>
 
       <% if current_user != photo.user %>
+
         <%= render 'bookmarks/bookmark_button', photo: photo %>
+        <div id="goodBtn__area" class="btnId<%= photo.id %>">
         <%= render 'goods/good_button', photo: photo %>
+        </div>
+
       <% end %>
 
     </div>

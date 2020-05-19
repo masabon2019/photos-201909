@@ -42,7 +42,9 @@
       <a href="<%= photo_path(bookmark.id) %>"><img src="<%= bookmark.image.url %>" style="width:240px;"></a>
       <p><%= link_to bookmark.user.name, user_path(bookmark.user) %></p>
       <%= render 'bookmarks/bookmark_button', photo: bookmark %>
-    <%= render 'goods/good_button', photo: bookmark %>
+      <div id="goodBtn__area" class="btnId<%= bookmark.id %>">
+      <%= render 'goods/good_button', photo: bookmark %>
+      </div>
     </div>
   <% end %>
 

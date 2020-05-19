@@ -11,7 +11,10 @@
       <% else %>
         <% @photo = photo %>
         <%= render 'bookmarks/bookmark_button', photo: @photo %>
-        <%= render 'goods/good_button', photo: @photo %>
+
+        <div id="goodBtn__area" class="btnId<%= photo.id %>">
+        <%= render 'goods/good_button', photo: photo %>
+        </div>
 
 
 
