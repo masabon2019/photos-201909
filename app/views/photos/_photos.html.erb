@@ -9,14 +9,14 @@
       <% if current_user == photo.user %>
           <%= link_to "削除", photo, method: :delete, data: { confirm: "削除してもいいですか?" }, class: 'btn btn-secondary  btn-sm' %>
       <% else %>
-        <% @photo = photo %>
-        <%= render 'bookmarks/bookmark_button', photo: @photo %>
+
+        <div id="bookmarkBtn__area" class="btnId<%= photo.id %>">
+        <%= render 'bookmarks/bookmark_button', photo: photo %>
+        </div>
 
         <div id="goodBtn__area" class="btnId<%= photo.id %>">
         <%= render 'goods/good_button', photo: photo %>
         </div>
-
-
 
       <% end %>
     </div>

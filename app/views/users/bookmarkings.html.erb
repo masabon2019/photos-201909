@@ -41,10 +41,17 @@
     <div class="col-sm-3">
       <a href="<%= photo_path(bookmark.id) %>"><img src="<%= bookmark.image.url %>" style="width:240px;"></a>
       <p><%= link_to bookmark.user.name, user_path(bookmark.user) %></p>
-      <%= render 'bookmarks/bookmark_button', photo: bookmark %>
-      <div id="goodBtn__area" class="btnId<%= bookmark.id %>">
-      <%= render 'goods/good_button', photo: bookmark %>
+
+      <% if current_user != bookmark.user %>
+      <div id="bookmarkBtn__area" class="btnId<%= bookmark.id %>">
+        <%= render 'bookmarks/bookmark_button', photo: bookmark %>
       </div>
+
+      <div id="goodBtn__area" class="btnId<%= bookmark.id %>">
+        <%= render 'goods/good_button', photo: bookmark %>
+      </div>
+      <% end %>
+
     </div>
   <% end %>
 

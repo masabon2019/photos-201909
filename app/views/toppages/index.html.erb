@@ -15,7 +15,10 @@
 
       <% if current_user != photo.user %>
 
+        <div id="bookmarkBtn__area" class="btnId<%= photo.id %>">
         <%= render 'bookmarks/bookmark_button', photo: photo %>
+        </div>
+
         <div id="goodBtn__area" class="btnId<%= photo.id %>">
         <%= render 'goods/good_button', photo: photo %>
         </div>
