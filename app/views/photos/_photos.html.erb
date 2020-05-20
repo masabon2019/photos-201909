@@ -7,7 +7,7 @@
       <a href="<%= photo_path(photo.id) %>"><img src="<%= photo.image.url %>"></a>
       </div>
       <% if current_user == photo.user %>
-          <%= link_to "削除", photo, method: :delete, data: { confirm: "削除してもいいですか?" }, class: 'btn btn-secondary  btn-sm' %>
+          <%= link_to "削除", photo, method: :delete, data: { confirm: "削除してもいいですか?" }, class: 'btn btn-secondary btn-sm' %>
       <% else %>
 
       <div class="icon__wrapper">

@@ -14,12 +14,12 @@
         <%= f.label :name, '名前' %>
         <%= f.text_field :name, class: 'form-control', value: @user.name  %>
       </div>
-
+<% if @user.id != 18 %>
       <div class="form-group">
         <%= f.label :email, 'e-mail' %>
         <%= f.email_field :email, class: 'form-control', value: @user.email %>
       </div>
-
+<% end %>
       <div class="form-group">
         <%= f.label :equipment, '機材' %>
         <%= f.text_field :equipment, class: 'form-control', value: @user.equipment %>
@@ -39,10 +39,11 @@
         <%= f.label :self_introduction, '自己紹介' %>
         <%= f.text_area :self_introduction, class: 'form-control', value: @user.self_introduction %>
       </div>
-
+<% if @user.id != 18 %>
       <div class="form-group offset-5">
         <%= f.submit '更新する', class: 'btn btn-primary' %>
       </div>
       <% end %>
+<% end %>
   </div>
 </div>
