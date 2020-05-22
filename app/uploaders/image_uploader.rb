@@ -12,11 +12,24 @@ include Cloudinary::CarrierWave
     process :resize_to_fill => [100, 150, :north]
   end
 
-  version :thumbnail do
-    process :resize_to_fit => [50, 50]
+  version :photo_thumbnail do
+    process :resize_to_fill => [480, 360, :center]
   end
+
+  version :prof_thumbnail do
+    process :resize_to_fill => [180, 180, :center]
+  end
+
 
   def public_id
     return model.id
   end
-end
+
+  def extension_whitelist
+    %w(jpg jpeg gif png)
+  end
+
+  def content_type_whitelist
+      [/image\//]
+    end
+  end

@@ -4,7 +4,7 @@
   <% photos.each do |photo| %>
     <div class="col-lg-3 col-sm-4 word-wrap">
       <div class="userPhotoList__box">
-      <a href="<%= photo_path(photo.id) %>"><img src="<%= photo.image.url %>"></a>
+      <a href="<%= photo_path(photo.id) %>"><img src="<%= photo.image.photo_thumbnail.url %>"></a>
       </div>
       <% if current_user == photo.user %>
           <%= link_to "削除", photo, method: :delete, data: { confirm: "削除してもいいですか?" }, class: 'btn btn-secondary btn-sm' %>

@@ -7,7 +7,7 @@
     <div class="col-sm-3 word-wrap">
       <div class="allPhotoList__box">
       <a href="<%= photo_path(photo.id) %>">
-      <img src="<%= photo.image.url %>">
+      <img src="<%= photo.image.photo_thumbnail.url %>">
       </a>
       </div>
       <div><%= link_to photo.user.name, user_path(photo.user) %></div>

@@ -39,7 +39,7 @@
   <% @bookmarks.each do |bookmark| %>
     <div class="col-sm-3">
       <div class="userBookmarkList__box">
-        <a href="<%= photo_path(bookmark.id) %>"><img src="<%= bookmark.image.url %>"></a>
+        <a href="<%= photo_path(bookmark.id) %>"><img src="<%= bookmark.image.photo_thumbnail.url %>"></a>
         <div><%= link_to bookmark.user.name, user_path(bookmark.user) %></div>
 
           <div class="icon__wrapper">
