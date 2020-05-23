@@ -20,6 +20,9 @@ include Cloudinary::CarrierWave
     process :resize_to_fill => [180, 180, :center]
   end
 
+  def size_range
+    1..3.megabytes
+  end
 
   def public_id
     return model.id
