@@ -46,7 +46,7 @@
   <% @photos.each do |photo| %>
     <div class="col-sm-3 word-wrap">
       <div class="allPhotoList__box">
-      <p><img src="<%= photo.image.url %>"></p>
+      <p><img src="<%= photo.image.photo_thumbnail.url %>"></p>
     </div>
       <p><%= photo.user.name %></p>
     </div>

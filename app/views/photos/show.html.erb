@@ -9,10 +9,19 @@
   <div class="postImgEvaluationBtns__wrapper">
   </div>
   <% else %>
+
   <div class="postImgEvaluationBtns__wrapper">
-    <div style="display:inline-block;"><%= render 'bookmarks/bookmark_button', photo: @photo %></div>
-    <div style="display:inline-block;"><%= render 'goods/good_button', photo: @photo %></div>
+
+    <div id="goodBtn__area" class="btnId<%= @photo.id %>">
+    <%= render 'goods/good_button', photo: @photo %>
+    </div>
+
+    <div id="bookmarkBtn__area" class="btnId<%= @photo.id %>">
+    <%= render 'bookmarks/bookmark_button', photo: @photo %>
+    </div>
   </div>
+
+
   <% end %>
 
  </div>
@@ -21,7 +30,7 @@
  <div class="col-sm-4">
    <div class="prof_image_wrapper">
      <div class="prof_image">
-      <a href="<%= user_path(@user) %>"><img src="<%= @user.prof_image.url %>"></a>
+      <a href="<%= user_path(@user) %>"><img src="<%= @user.prof_image.prof_thumbnail.url %>"></a>
     </div>
     <div class="prof_text">
       <a href="<%= user_path(@user) %>"><%= @user[:name] %></a>
