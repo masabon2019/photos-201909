@@ -1,0 +1,16 @@
+ja:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            #email:
+              #blank: "Please Specify an Email id"
+              #taken: "Please use a different Email id"
+              #invalid: "Please Specify a valid Email id"
+            password:
+              blank: "とパスワード確認を入力してください"
+              #confirmation: "入力されたパスワードと確認用パスワードと一致しません"
+            password_confirmation:
+              blank: "パスワード確認を入力してください"
+              confirmation: "とパスワードが一致しません"

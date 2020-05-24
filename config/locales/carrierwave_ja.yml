@@ -1,0 +1,5 @@
+ja:
+  errors:
+    messages:
+      max_size_error: "ファイルを3MB以下のサイズにしてください"
+      extension_whitelist_error: "ファイル形式をJPEGかPNGにしてください"

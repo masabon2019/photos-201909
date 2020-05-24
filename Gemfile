@@ -71,3 +71,6 @@ gem 'carrierwave'
 gem 'cloudinary'
 
 gem 'dotenv-rails'
+
+#エラーメッセージ日本語化
+gem 'rails-i18n'
