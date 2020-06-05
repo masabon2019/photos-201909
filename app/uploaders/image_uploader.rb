@@ -32,7 +32,7 @@ include Cloudinary::CarrierWave
     %w(jpg jpeg gif png)
   end
 
-  def content_type_whitelist
-      [/image\//]
-    end
+  #def content_type_whitelist
+  #    [/image\//]
+  #  end
   end

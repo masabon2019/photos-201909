@@ -1,23 +1,47 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id                :bigint           not null, primary key
+#  email             :string(255)
+#  equipment         :string(255)
+#  facebook          :string(255)
+#  genre             :string(255)
+#  name              :string(255)
+#  password_digest   :string(255)
+#  prof_image        :string(255)
+#  self_introduction :string(255)
+#  twitter           :string(255)
+#  url               :string(255)
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#
+
 class User < ApplicationRecord
   before_save { self.email.downcase! }
-  validates :name, presence: true, length: { maximum: 20 }
+
+  validates :name, presence: true, length: { maximum: 20 }, uniqueness: { case_sensitive: false }
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 80 },
-                  format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i },
-                  uniqueness: { case_sensitive: false }
+                    format: { with: VALID_EMAIL_REGEX },
+                    uniqueness: { case_sensitive: false }
   validates :prof_image, presence: true
+  validates :url, allow_blank: true, length: { maximum: 255 },
+                  format: /\A#{URI::regexp(%w(http https))}\z/,
+                  on: :update
   validates :equipment, length: { maximum: 50 }
   validates :genre, length: { maximum: 50 }
-  #validates :url, length: { maximum: 255 }, format: /\A#{URI::regexp(%w(http https))}\z/, if: :correct_url?
-  validates :url, allow_blank: true, length: { maximum: 255 }, format: /\A#{URI::regexp(%w(http https))}\z/, on: :update
   validates :self_introduction, length: { maximum: 255 }
+  validates :password, presence: true, length: { minimum: 8 }
+
   has_secure_password
 
   mount_uploader :prof_image, ImageUploader
 
-  has_many :photos
-  has_many :relationships
+  has_many :photos, dependent: :destroy
+  has_many :relationships, dependent: :destroy
   has_many :followings, through: :relationships, source: :follow
-  has_many :reverses_of_relationship, class_name: 'Relationship', foreign_key: 'follow_id'
+  has_many :reverses_of_relationship, class_name: 'Relationship', foreign_key: 'follow_id', dependent: :destroy
   has_many :followers, through: :reverses_of_relationship, source: :user
 
   has_many :bookmarks, dependent: :destroy
@@ -65,10 +89,6 @@ class User < ApplicationRecord
 
   def goodpress?(other_photo)
     self.good_photos.include?(other_photo)
-  end
-
-  def correct_url?
-    self.url != nil
   end
 
 end

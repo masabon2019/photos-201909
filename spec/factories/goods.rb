@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: bookmarks
+# Table name: goods
 #
 #  id         :bigint           not null, primary key
 #  created_at :datetime         not null
@@ -13,7 +13,10 @@
 #  fk_rails_...  (photo_id => photos.id)
 #  fk_rails_...  (user_id => users.id)
 #
-class Bookmark < ApplicationRecord
-  belongs_to :user
-  belongs_to :photo
+
+FactoryBot.define do
+  factory :good do
+    association :photo
+    user { photo.user }
+  end
 end

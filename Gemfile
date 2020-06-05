@@ -51,6 +51,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'spring-commands-rspec'
 end
 
 
@@ -74,3 +75,13 @@ gem 'dotenv-rails'
 
 #エラーメッセージ日本語化
 gem 'rails-i18n'
+
+#RSpecでテストを書く
+group :development, :test do
+  gem 'rspec-rails', '~> 3.6'
+  gem 'factory_bot_rails'
+end
+
+
+#modelなどにschemeInfomationを追加する
+gem 'annotate'
