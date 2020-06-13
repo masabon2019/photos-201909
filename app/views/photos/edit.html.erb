@@ -21,9 +21,10 @@
       <%= f.label :comment, 'コメント　※255文字以内' %>
       <%= f.text_field :comment, class: 'form-control', value: @photo.comment, maxlength:255, size:255 %>
     </div>
-  </div>
-  <div class="col-lg-2 offset-lg-5">
-  <%= f.submit '更新する' , class: 'btn btn-primary btn-block' %>
+    <div class="form-group col-lg-2 offset-lg-5">
+    <%= f.submit '更新する' , class: 'btn btn-primary btn-block' %>
+    </div>
+
   </div>
 </div>
   <% end %>

@@ -82,6 +82,13 @@ group :development, :test do
   gem 'factory_bot_rails'
 end
 
+group :test do
+  gem 'capybara', '~> 3.31.0'
+  gem 'launchy', '~> 2.4.3'
+  gem 'selenium-webdriver', '~> 3.142', '>= 3.142.7'
+  gem 'webdrivers'
+end
+
 
 #modelなどにschemeInfomationを追加する
 gem 'annotate'
