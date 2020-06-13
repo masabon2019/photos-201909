@@ -43,35 +43,7 @@ h1 {
     word-wrap: break-word;
     padding: 4px;
 }
-.prof_image_wrapper {
-  position: relative;
-  padding: 10px 0;
 
-  height:280px;
-  margin-right: 10px;
-  margin-bottom: 20px;
-  background-color: #fff;
-}
-.prof_image {
-  margin: 0 auto;
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  overflow-x: hidden;
-}
-.prof_image img {
-  object-fit: cover;
-  width: 180px;
-  height: 180px;
-}
-.prof_text {
-  display: block;
-  text-align: center;
-}
-.prof_followbtn{
-  text-align: center;
-  margin-top: 24px;
-}
 
 /*　フォロー、フォロワー蘭のユーザーアイコン表示　*/
 .userIcon__wrapper {
@@ -103,12 +75,62 @@ h1 {
   margin-top: 24px;
 }
 /* 投稿写真詳細ページ　*/
-.postimage__wrapper {
-  margin: 0 auto;
-  max-width: 640px;
+.postimage {
 }
-.postimage__wrapper img{
+.postimage img{
   width: 100%;
+}
+.profimage {
+
+}
+#postImage {
+}
+#postImage .prof_wrapper {
+  border: solid 1px #ddd;
+  padding: 8px;
+  height: 100px;
+
+}
+#postImage .prof_image {
+  display: block;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow-x: hidden;
+  float: left;
+  margin-right: 24px;
+}
+#postImage .prof_image img {
+  object-fit: cover;
+  width: 80px;
+  height: 80px;
+}
+#postImage .prof_text {
+  display: block;
+  margin-top: 6px;
+  font-size: 18px;
+}
+.postimage_day{
+  color: #999;
+}
+
+.postimage_equipment{
+  margin-left: 24px;
+  color: #999;
+}
+.postimage_coment {
+  font-size: 1.1em;
+  margin-top: 24px;
+}
+
+.postimage_followbtn{
+  margin-top: 12px;
+}
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
 }
 .postImgEvaluationBtns__wrapper {
   width: 100%;
