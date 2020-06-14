@@ -13,10 +13,11 @@
        <div class="prof_text">
          <a href="<%= user_path(@user) %>"><%= @user[:name] %></a>
        </div>
-       <div class="postimage_followbtn">
-         <!--フォローボタン-->
+       <!--フォローボタン-->
+       <div id="followBtn__area" class="postimage_followbtn btnId<%= @user.id %>">
          <%= render 'relationships/follow_button', user: @user %>
        </div>
+
      </div>
      <% if current_user == @photo.user %>
      <div class="postImgEditBtn">
