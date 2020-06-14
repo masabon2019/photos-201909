@@ -1,32 +1,6 @@
-<h1><%= @user.name %>さんのプロフィール</h1>
+<%= render 'users/prof', user: @user %>
 
-<div class="row">
-  <div class="col-sm-3">
-    <div class="prof_image_wrapper">
-      <div class="prof_image">
-        <img src="<%= @user.prof_image.prof_thumbnail.url %>">
-      </div>
-      <div class="prof_followbtn">
-        <!--フォローボタン-->
-        <%= render 'relationships/follow_button', user: @user %>
-      </div>
-    </div>
-
-
-  </div>
-  <div class="col-sm-4 word-wrap">
-    <p>名前: <%= @user.name %></p>
-    <p>使用機材: <%= @user.equipment %></p>
-    <p>ジャンル: <%= @user.genre %></p>
-    <p>URL: <%= @user.url %></p>
-  </div>
-  <div class="col-sm-5 word-wrap">
-    自己紹介: <%= @user.self_introduction %>
-  </div>
-</div>
-
-
-<div class="row">
+<div class="row usersProf_tabs_wrapper">
   <div class="col-sm-12">
     <ul class="nav nav-tabs nav-justified mb-3">
       <li class="nav-item"><a href="<%= user_path(@user) %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>">写真 <span class="badge badge-secondary"><%= @count_photos %></span></a></li>
@@ -34,6 +8,7 @@
       <li class="nav-item"><a href="<%= followings_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followings_user_path(@user)) %>">フォロー <span class="badge badge-secondary"><%= @count_followings %></span></a></li>
       <li class="nav-item"><a href="<%= followers_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followers_user_path(@user)) %>">フォロワー <span class="badge badge-secondary"><%= @count_followers %></span></a></li>
     </ul>
-    <%= render 'photos/photos', photos: @photos %>
   </div>
 </div>
+
+<%= render 'photos/photos', photos: @photos %>

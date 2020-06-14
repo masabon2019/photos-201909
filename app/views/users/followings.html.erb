@@ -1,30 +1,7 @@
-<h1><%= @user.name %>さんのプロフィール</h1>
-<div class="row">
-  <div class="col-sm-3">
-    <div class="prof_image_wrapper">
-      <div class="prof_image">
-        <img src="<%= @user.prof_image.prof_thumbnail.url %>">
-      </div>
-      <div class="prof_followbtn">
-        <!--フォローボタン-->
-        <%= render 'relationships/follow_button', user: @user %>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-4 word-wrap">
-    <p>名前: <%= @user.name %></p>
-    <p>使用機材: <%= @user.equipment %></p>
-    <p>ジャンル: <%= @user.genre %></p>
-    <p>URL: <%= @user.url %></p>
-  </div>
-  <div class="col-sm-5 word-wrap">
-    自己紹介: <%= @user.self_introduction %>
-  </div>
-</div>
+<%= render 'users/prof', user: @user %>
 
-
-<div class="row">
-  <div class="col-sm-12">
+<div class="row usersProf_tabs_wrapper">
+  <div class="col-12">
     <ul class="nav nav-tabs nav-justified mb-3">
       <li class="nav-item"><a href="<%= user_path(@user) %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>">写真 <span class="badge badge-secondary"><%= @count_photos %></span></a></li>
       <li class="nav-item"><a href="<%= bookmarkings_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(bookmarkings_user_path(@user)) %>">お気に入り <span class="badge badge-secondary"><%= @count_bookmarks %></span></a></li>
@@ -34,25 +11,22 @@
   </div>
 </div>
 
-
   <% if @followings.any? %>
   <div class="row">
-
     <% @followings.each do |user| %>
-      <div class="col-sm-3 word-wrap">
-        <div class="userIcon__wrapper">
-          <div class="userIcon__image">
+      <div class="col-lg-3 col-md-4 col-sm-6 word-wrap">
+        <div class="userIcon_wrapper">
+          <div class="userIcon_image">
             <a href="<%= user_path(user) %>"><img src="<%= user.prof_image.prof_thumbnail.url %>"></a>
           </div>
-          <div class="userIcon__text">
+          <div class="userIcon_name">
             <a href="<%= user_path(user) %>"><%= user.name %></a>
-            <!--フォローボタン-->
-            <%= render 'relationships/follow_button', user: user %>
           </div>
-
+          <div id="followBtn__area" class="userIcon_followbtn btnId<%= user.id %>">
+          <!--フォローボタン-->
+          <%= render 'relationships/follow_button', user: user %>
+          </div>
         </div>
-
-
       </div>
       <% end %>
 		</div>

@@ -43,45 +43,42 @@ h1 {
     word-wrap: break-word;
     padding: 4px;
 }
-
-
-/*　フォロー、フォロワー蘭のユーザーアイコン表示　*/
-.userIcon__wrapper {
-  position: relative;
-  padding: 10px 0;
-  height:280px;
-  margin-right: 10px;
-  margin-bottom: 20px;
-  background-color: #fff;
+.usersProf_wrapper {
+  margin-bottom: 24px;
 }
-.userIcon__image {
+.usersProf_tabs_wrapper {
+  margin-bottom: 24px;
+}
+/* ユーザープロフィールのアイコン */
+.userIcon_wrapper {
+  padding: 0 0 48px 0;
+}
+.userIcon_image {
   margin: 0 auto;
   width: 180px;
   height: 180px;
   border-radius: 50%;
   overflow-x: hidden;
+  margin-bottom: 20px;
 }
-.userIcon__image img {
+.userIcon_image img {
   object-fit: cover;
   width: 180px;
   height: 180px;
 }
-.userIcon__text {
-  display: block;
+.userIcon_name {
+  text-align: center;
+  margin-bottom: 12px;
+}
+.userIcon_followbtn {
   text-align: center;
 }
-.prof_followbtn{
-  text-align: center;
-  margin-top: 24px;
-}
+
 /* 投稿写真詳細ページ　*/
 .postimage {
 }
 .postimage img{
   width: 100%;
-}
-.profimage {
-
 }
 #postImage {
 }

@@ -1,0 +1,1 @@
+$("#followBtn__area.btnId<%= @user.id %>").html("<%= escape_javascript(render partial: 'relationships/follow_button', locals: {user: @user} ) %>");

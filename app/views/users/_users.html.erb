@@ -1,15 +1,19 @@
 <% if users.any? %>
 <div class="row">
     <% users.each do |user| %>
-    <div class="col-lg-3 col-md-4 word-wrap">
-      <div class="prof_image_wrapper">
-        <div class="prof_image">
+    <div class="col-lg-3 col-md-4 col-sm-6 word-wrap">
+      <div class="userIcon_wrapper">
+        <div class="userIcon_image">
           <a href="<%= user_path(user) %>"><img src="<%= user.prof_image.prof_thumbnail.url %>"></a>
         </div>
-        <div class="prof_text">
-          <p><%= user.self_introduction %></p>
-          <p> <a href="<%= user_path(user) %>"><%= user.name %></a></p>
+        <div class="userIcon_name">
+          <a href="<%= user_path(user) %>"><%= user.name %></a>
         </div>
+        <!--フォローボタン-->
+        <div id="followBtn__area" class="userIcon_followbtn btnId<%= user.id %>">
+          <%= render 'relationships/follow_button', user: user %>
+        </div>
+
       </div>
     </div>
     <% end %>

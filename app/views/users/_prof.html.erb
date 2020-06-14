@@ -1,0 +1,22 @@
+<h1><%= @user.name %>さんのプロフィール</h1>
+
+<div class="row usersProf_wrapper">
+  <div class="col-lg-3 col-md-4 col-sm-6">
+    <div class="userIcon_wrapper">
+      <div class="userIcon_image">
+        <img src="<%= @user.prof_image.prof_thumbnail.url %>">
+      </div>
+      <div id="followBtn__area" class="userIcon_followbtn btnId<%= @user.id %>">
+        <!--フォローボタン-->
+        <%= render 'relationships/follow_button', user: @user %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-9 col-md-8 col-sm-6 word-wrap">
+    <p><%= @user.name %></p>
+    <p>使用機材: <%= @user.equipment %> ジャンル: <%= @user.genre %></p>
+    <p><%= @user.url %></p>
+    自己紹介: <%= @user.self_introduction %>
+  </div>
+</div>
