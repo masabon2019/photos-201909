@@ -30,9 +30,6 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    if (@user.id == 18)
-    flash.now[:danger] = 'ゲストユーザーはユーザー登録情報の変更はできません'
-    end
   end
 
   def update
