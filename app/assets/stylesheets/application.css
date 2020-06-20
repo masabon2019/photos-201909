@@ -179,8 +179,12 @@ h1 {
   word-wrap: break-word;
   overflow-wrap: break-word;
 }
+.userComment__content p {
+  margin-bottom: 0;
+}
 .userComment__name {
   font-size: 0.9em;
+  color: royalblue;
 }
 
 /* User投稿一覧ページ　*/
