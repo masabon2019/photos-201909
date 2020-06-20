@@ -21,7 +21,17 @@ h1 {
     background-color: #eee;
     font-size: large;
 }
-
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+button:focus {
+	outline: none;
+}
+button:active {
+  outline: none;
+}
 .word-wrap{
     word-wrap: break-word;
 }
@@ -110,9 +120,12 @@ h1 {
 .postimage_day{
   color: #999;
 }
+.postimage_title {
+  margin-top: 24px;
+  font-size: 1.6em;
 
+}
 .postimage_equipment{
-  margin-left: 24px;
   color: #999;
 }
 .postimage_coment {
@@ -124,26 +137,20 @@ h1 {
   margin-top: 12px;
 }
 
-.clearfix::after {
-  content: "";
-  display: block;
-  clear: both;
-}
 .postImgEvaluationBtns__wrapper {
   width: 100%;
-  margin: 24px 0;
+  margin-top: 12px;
+  margin-bottom: 24px;
   text-align: center;
 }
-.postImgEditBtn__wrapper{
-  width: 100%;
-}
 .postImgEditBtn {
-  margin-bottom: 100px;
-  margin-top: 36px;
-  padding: 0;
+  margin: 36px 0;
 }
 
 /* ユーザーコメント */
+h1#userComment {
+  margin-top: 24px;
+}
 .userComment__wrapper {
   border: 1px solid #ddd;
   border-radius: 20px;
@@ -228,10 +235,38 @@ h1 {
 #bookmarkBtn__area {
   display: inline-block;
 }
+.goodCount {
+  font-size: 15px;
+  color: #999;
+  margin-left: 3px;
+}
+.bookmarkCount {
+  font-size: 15px;
+  color: #999;
+  margin-left: 3px;
+}
 .icon__wrapper .btn{
   padding-right: 0px;
   padding-top: 0px;
 }
+.icon_thumbsup-on{
+  fill: #007bff;
+  width: 18px;
+}
+.icon_thumbsup-off{
+  fill: #6c757d;
+  width: 18px;
+}
+.icon_star-on{
+  fill: #ffc107;
+  width: 18px;
+}
+.icon_star-off{
+  fill: #6c757d;
+  width: 18px;
+}
+
+
 /* ログインボタン　*/
 
 .loginBtn__wrapper {

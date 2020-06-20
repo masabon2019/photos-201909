@@ -1,64 +1,60 @@
 <div id="postImage" class="row">
-  <div class="col-lg-8 postimage">
-    <img src="<%= @photo.image.url %>">
-  </div>
-
-  <div class="col-lg-4 ">
-    <div class="prof_wrapper clearfix">
-      <div class="prof_image">
-        <a href="<%= user_path(@user) %>"><img src="<%= @user.prof_image.prof_thumbnail.url %>"></a>
-
-      </div>
-      <div class="prof_text">
-        <a href="<%= user_path(@user) %>"><%= @user[:name] %></a>
-      </div>
-      <!--フォローボタン-->
-      <div id="followBtn__area" class="postimage_followbtn btnId<%= @user.id %>">
-        <%= render 'relationships/follow_button', user: @user %>
-      </div>
-
-    </div>
-    <% if current_user == @photo.user %>
-      <div class="postImgEditBtn">
-        <%= link_to "編集する", edit_photo_path, method: :get, class: 'btn btn-primary btn-block' %>
-      </div>
-    <% end %>
-    <h2><%= @photo[:title] %></h2>
-    <div>
-      <span class="postimage_day">撮影日
-        <%= @photo[:day] %></span>
-      <span class="postimage_equipment">機材
-        <%= @photo[:equipment] %></span>
-    </div>
-    <div class="postimage_coment"><%= @photo[:comment] %></div>
-
-  </div>
-
+  <!-- 写真表示 start -->
   <div class="col-lg-8">
-    <% if current_user == @photo.user %>
-      <div class="postImgEvaluationBtns__wrapper"></div>
-    <% else %>
+    <div class="postimage">
+      <img src="<%= @photo.image.url %>">
+    </div>
+    <% if current_user != @photo.user %>
       <div class="postImgEvaluationBtns__wrapper">
         <div id="goodBtn__area" class="btnId<%= @photo.id %>">
           <%= render 'goods/good_button', photo: @photo %>
         </div>
-
         <div id="bookmarkBtn__area" class="btnId<%= @photo.id %>">
           <%= render 'bookmarks/bookmark_button', photo: @photo %>
         </div>
       </div>
-
     <% end %>
-
   </div>
+  <!-- 写真表示 end -->
+
+  <!-- 投稿者情報カラム start -->
+  <div class="col-lg-4">
+    <div class="prof_wrapper clearfix">
+      <div class="prof_image">
+        <a href="<%= user_path(@user) %>"><img src="<%= @user.prof_image.prof_thumbnail.url %>"></a>
+      </div>
+      <div class="prof_text">
+        <a href="<%= user_path(@user) %>"><%= @user[:name] %></a>
+      </div>
+      <div id="followBtn__area" class="postimage_followbtn btnId<%= @user.id %>">
+        <%= render 'relationships/follow_button', user: @user %>
+      </div>
+    </div>
+    <h2 class="postimage_title"><%= @photo[:title] %></h2>
+    <div>
+      <span class="postimage_day">撮影日
+        <%= @photo[:day] %></span><br>
+      <span class="postimage_equipment">機材
+        <%= @photo[:equipment] %></span>
+    </div>
+    <div class="postimage_coment"><%= simple_format(h(@photo[:comment])) %></div>
+    <% if current_user == @photo.user %>
+      <div class="postImgEditBtn">
+        <%= link_to "テキスト編集する", edit_photo_path, method: :get, class: 'btn btn-primary btn-block' %>
+      </div>
+    <% end %>
+  </div>
+  <!-- 投稿者情報カラム end -->
+
 </div>
 
+<!-- ユーザーコメント表示 start -->
 <div class="row">
   <div class="col-lg-8">
-    <h1>みんなのコメント</h1>
-    <!-- ユーザーコメント表示 -->
+    <h1 id="userComment">みんなのコメント</h1>
     <div id="userComment__area">
       <%= render 'usercomments/usercomment_display', photo: @photo %>
     </div>
   </div>
 </div>
+<!-- ユーザーコメント表示 end -->
