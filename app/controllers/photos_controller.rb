@@ -8,7 +8,7 @@ class PhotosController < ApplicationController
   def new
     @photo = Photo.new
   end
-  
+
   def create
     @photo = current_user.photos.build(photos_params)
 
@@ -19,7 +19,7 @@ class PhotosController < ApplicationController
       flash.now[:danger] = '写真の投稿に失敗しました。'
       render :new
     end
-      
+
   end
 
   def edit
@@ -30,6 +30,8 @@ class PhotosController < ApplicationController
   def show
     @photo = Photo.find(params[:id])
     @user = User.find(@photo[:user_id])
+    @usercomment = Usercomment.new(photo_id: @photo.id)
+    @usercomments = @photo.usercomments.order(id: :desc)
   end
 
   def destroy
@@ -40,7 +42,7 @@ class PhotosController < ApplicationController
 
   def update
     @photo = Photo.find(params[:id])
-    
+
     if @photo.update(photos_params)
       flash[:success] = '写真情報は正常に更新されました'
       redirect_to @photo
@@ -49,18 +51,18 @@ class PhotosController < ApplicationController
       render :edit
     end
   end
-  
+
   def photos_params
     params.require(:photo).permit(:image, :title, :day, :equipment, :comment)
   end
-  
+
   def correct_photo_user
     @photo = Photo.find(params[:id])
     @user = User.find(@photo[:user_id])
-    
+
     unless current_user == @user
       redirect_to root_url
     end
   end
-  
+
 end

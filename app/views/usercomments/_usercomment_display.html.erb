@@ -1,0 +1,32 @@
+<% usercomments = photo.usercomments.order(created_at: :desc) %>
+<% usercomments.each do |comment| %>
+  <div class="userComment__wrapper clearfix">
+    <div class="userComment__inner-l">
+    <div class="userComment__userIcon">
+      <a href="<%= user_path(comment.user) %>"><img src="<%= comment.user.prof_image.prof_thumbnail.url %>"></a>
+    </div>
+    </div>
+    <div class="userComment__inner-r">
+    <div class="userComment__content">
+      <%= comment.content %><br>
+      <span class="userComment__name"><%= comment.user.name %></span>
+    </div>
+    <% if current_user == comment.user %>
+        <%= link_to "削除", comment, method: :delete, data: { confirm: "削除してもいいですか?" }, class: 'btn btn-outline-secondary btn-sm userComment__delete-btn', remote: true %>
+    <% end %>
+    </div>
+  </div>
+<% end %>
+
+<!-- コメント入力蘭 -->
+  <%= form_with model: photo.usercomments.build, remote: true do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
+  <%= f.hidden_field :photo_id, :value => @photo.id %>
+  <div class="form-group">
+    <%= f.label :content, 'コメント' %>
+    <%= f.text_area :content, class: 'form-control', rows: 4, placeholder: 'コメントする', maxlength: 140 %>
+  </div>
+  <div class="form-group offset-5">
+    <%= f.submit '送信' , class: 'btn btn-primary' %>
+  </div>
+<% end %>

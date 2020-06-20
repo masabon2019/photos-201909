@@ -1,21 +1,23 @@
 # == Schema Information
 #
-# Table name: relationships
+# Table name: usercomments
 #
 #  id         :bigint           not null, primary key
+#  content    :string(255)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  follow_id  :bigint
+#  photo_id   :bigint
 #  user_id    :bigint
 #
 # Foreign Keys
 #
-#  fk_rails_...  (follow_id => users.id)
+#  fk_rails_...  (photo_id => photos.id)
 #  fk_rails_...  (user_id => users.id)
 #
 FactoryBot.define do
-  factory :relationship do
-    follow_id { 1 }
-    user_id { 1 }
+  factory :usercomment do
+    content { "MyString" }
+    user { nil }
+    photo { nil }
   end
 end

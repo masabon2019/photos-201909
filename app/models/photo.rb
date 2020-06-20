@@ -35,4 +35,7 @@ class Photo < ApplicationRecord
   has_many :goods, dependent: :destroy
   has_many :good_users, through: :goods, source: :user
 
+  has_many :usercomments, dependent: :destroy
+  has_many :usercomment_users, through: :usercomments, source: :user
+
 end

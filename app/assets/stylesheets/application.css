@@ -141,8 +141,48 @@ h1 {
   margin-bottom: 100px;
   margin-top: 36px;
   padding: 0;
-
 }
+
+/* ユーザーコメント */
+.userComment__wrapper {
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+}
+.userComment__inner-l {
+  display: block;
+  float: left;
+}
+.userComment__inner-r {
+  display: block;
+  float: left;
+  width: 80%;
+  margin-left: 12px;
+}
+.userComment__delete-btn {
+  margin-top: 12px;
+}
+.userComment__userIcon {
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow-x: hidden;
+}
+.userComment__userIcon img {
+  object-fit: cover;
+  width: 50px;
+  height: 50px;
+}
+.userComment__content {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+.userComment__name {
+  font-size: 0.9em;
+}
+
 /* User投稿一覧ページ　*/
 .userPhotoList__box{
   width: 100%;
