@@ -5,16 +5,36 @@
     <%= form_with(model: @user, local: true) do |f| %>
     <%= render 'layouts/error_messages', model: f.object %>
 
-      <div class="form-group">
-        <%=f.label "自画像をアップロード" %>
-        <%= f.file_field :prof_image, class: 'form-control-file' %>
+    <div class="form-group">
+      <%=f.label "自画像をアップロード" %>
+      <div class="upImage__preview">
+        <%= image_tag @user.prof_image.url, id: :img_prev if @user.prof_image? %>
+        <%= f.file_field :prof_image, class: 'form-control-file', id: :up_img %>
+        <script type="text/javascript">
+          $(function () {
+            function readURL(input) {
+              if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                  $('#img_prev').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+              }
+              $('#img_prev').attr('src', '<%= @user.prof_image.url %>');
+            }
+            $("#up_img").change(function () {
+              readURL(this);
+            });
+          });
+        </script>
       </div>
+    </div>
 
-      <% if @user.email != "guest@example.com" %>
+    <% if @user.email != "guest@example.com" %>
 
       <div class="form-group">
         <%= f.label :name, '名前' %>
-        <%= f.text_field :name, class: 'form-control', value: @user.name  %>
+        <%= f.text_field :name, class: 'form-control', value: @user.name %>
       </div>
 
       <div class="form-group">
@@ -23,49 +43,51 @@
       </div>
 
       <div class="form-group">
-        <%= f.label :password, 'パスワード' %><span>※20文字以内</span>
-        <%= f.password_field :password, class: 'form-control', value: @user.password, maxlength:20 %>
+        <%= f.label :password, 'パスワード' %>
+        <span>※20文字以内</span>
+        <%= f.password_field :password, class: 'form-control', maxlength:20 %>
       </div>
       <div class="form-group">
-        <%= f.label :password_confirmation, 'パスワード確認' %><span>※20文字以内</span>
-        <%= f.password_field :password_confirmation, class: 'form-control', value: @user.password_confirmation, maxlength:20 %>
+        <%= f.label :password_confirmation, 'パスワード確認' %>
+        <span>※20文字以内</span>
+        <%= f.password_field :password_confirmation, class: 'form-control', maxlength:20 %>
       </div>
 
-      <% else %>
+    <% else %>
 
       <div class="form-group">
         <%= f.label :name, '名前' %>
-        <%= f.text_field :name, class: 'form-control', value: @user.name, disabled: true  %>
+        <%= f.text_field :name, class: 'form-control', value: @user.name, disabled: true %>
       </div>
       <div class="form-group">
         <%= f.label :email, 'e-mail' %>
         <%= f.email_field :email, class: 'form-control', value: @user.email, disabled: true %>
       </div>
-      
-      <% end %>
 
-      <div class="form-group">
-        <%= f.label :equipment, '機材' %>
-        <%= f.text_field :equipment, class: 'form-control', value: @user.equipment %>
-      </div>
+    <% end %>
 
-      <div class="form-group">
-        <%= f.label :genre, 'ジャンル' %>
-        <%= f.text_field :genre, class: 'form-control', value: @user.genre %>
-      </div>
+    <div class="form-group">
+      <%= f.label :equipment, '機材' %>
+      <%= f.text_field :equipment, class: 'form-control', value: @user.equipment %>
+    </div>
 
-      <div class="form-group">
-        <%= f.label :url, 'URL' %>
-        <%= f.url_field :url, class: 'form-control', value: @user.url %>
-      </div>
+    <div class="form-group">
+      <%= f.label :genre, 'ジャンル' %>
+      <%= f.text_field :genre, class: 'form-control', value: @user.genre %>
+    </div>
 
-      <div class="form-group">
-        <%= f.label :self_introduction, '自己紹介' %>
-        <%= f.text_area :self_introduction, class: 'form-control', value: @user.self_introduction %>
-      </div>
-      <div class="form-group offset-5">
-        <%= f.submit '更新する', class: 'btn btn-primary' %>
-      </div>
-<% end %>
-  </div>
+    <div class="form-group">
+      <%= f.label :url, 'URL' %>
+      <%= f.url_field :url, class: 'form-control', value: @user.url %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :self_introduction, '自己紹介' %>
+      <%= f.text_area :self_introduction, class: 'form-control', value: @user.self_introduction %>
+    </div>
+    <div class="form-group offset-5">
+      <%= f.submit '更新する', class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>
 </div>

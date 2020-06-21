@@ -59,6 +59,8 @@ button:active {
 .usersProf_tabs_wrapper {
   margin-bottom: 24px;
 }
+
+
 /* ユーザープロフィールのアイコン */
 .userIcon_wrapper {
   padding: 0 0 48px 0;
@@ -145,6 +147,16 @@ button:active {
 }
 .postImgEditBtn {
   margin: 36px 0;
+}
+/* ユーザー登録・更新、投稿写真のプレビュー */
+.upImage__preview {
+  margin: 12px 0;
+}
+.upImage__preview img{
+  width: 300px;
+}
+.upImage__preview input{
+  margin-top: 12px;
 }
 
 /* ユーザーコメント */
@@ -235,15 +247,10 @@ h1#userComment {
 #bookmarkBtn__area {
   display: inline-block;
 }
-.goodCount {
-  font-size: 15px;
+.goodCount, .bookmarkCount {
+  font-size: 14px;
   color: #999;
-  margin-left: 3px;
-}
-.bookmarkCount {
-  font-size: 15px;
-  color: #999;
-  margin-left: 3px;
+  margin-left: 1px;
 }
 .icon__wrapper .btn{
   padding-right: 0px;
@@ -251,19 +258,19 @@ h1#userComment {
 }
 .icon_thumbsup-on{
   fill: #007bff;
-  width: 18px;
+  width: 17px;
 }
 .icon_thumbsup-off{
   fill: #6c757d;
-  width: 18px;
+  width: 17px;
 }
 .icon_star-on{
   fill: #ffc107;
-  width: 18px;
+  width: 17px;
 }
 .icon_star-off{
   fill: #6c757d;
-  width: 18px;
+  width: 17px;
 }
 
 

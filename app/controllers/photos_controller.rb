@@ -53,7 +53,7 @@ class PhotosController < ApplicationController
   end
 
   def photos_params
-    params.require(:photo).permit(:image, :title, :day, :equipment, :comment)
+    params.require(:photo).permit(:image, :image_cache, :title, :day, :equipment, :comment)
   end
 
   def correct_photo_user
