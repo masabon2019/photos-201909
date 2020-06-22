@@ -3,7 +3,9 @@
     <div class="userComment__wrapper clearfix">
       <div class="userComment__inner-l">
         <div class="userComment__userIcon">
-          <a href="<%= user_path(comment.user) %>"><img src="<%= comment.user.prof_image.prof_thumbnail.url %>"></a>
+          <a href="<%= user_path(comment.user) %>">
+            <%= image_tag comment.user.prof_image.prof_thumbnail.url %>
+          </a>
         </div>
       </div>
       <div class="userComment__inner-r">
