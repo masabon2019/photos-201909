@@ -8,8 +8,9 @@
     <div class="form-group">
       <%=f.label "自画像をアップロード" %>
       <div class="upImage__preview">
-        <%= image_tag @user.prof_image.url, id: :img_prev if @user.prof_image? %>
+        <%= image_tag @user.prof_image.url, id: :img_prev %>
         <%= f.file_field :prof_image, class: 'form-control-file', id: :up_img %>
+        <%= f.hidden_field :prof_image_cache %>
         <script type="text/javascript">
           $(function () {
             function readURL(input) {
@@ -19,8 +20,9 @@
                   $('#img_prev').attr('src', e.target.result);
                 }
                 reader.readAsDataURL(input.files[0]);
+              } else {
+                $('#img_prev').attr('src', '');
               }
-              $('#img_prev').attr('src', '<%= @user.prof_image.url %>');
             }
             $("#up_img").change(function () {
               readURL(this);

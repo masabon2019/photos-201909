@@ -25,7 +25,7 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { maximum: 80 },
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
-  validates :prof_image, presence: true
+  #validates :prof_image, presence: true
   validates :url, allow_blank: true, length: { maximum: 255 },
                   format: /\A#{URI::regexp(%w(http https))}\z/,
                   on: :update

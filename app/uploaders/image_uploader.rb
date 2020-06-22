@@ -32,6 +32,10 @@ include Cloudinary::CarrierWave
     %w(jpg jpeg gif png)
   end
 
+  def default_url(*args)
+    "default.jpg"
+  end
+
   #def content_type_whitelist
   #    [/image\//]
   #  end
