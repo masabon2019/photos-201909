@@ -36,56 +36,65 @@
 
       <div class="form-group">
         <%= f.label :name, '名前' %>
-        <%= f.text_field :name, class: 'form-control', value: @user.name %>
+        <%= f.text_field :name, class: 'form-control', value: @user.name, maxlength: 20 %>
+        <div class="remaining"><span class="count"></span>/20</div>
       </div>
 
       <div class="form-group">
         <%= f.label :email, 'e-mail' %>
-        <%= f.email_field :email, class: 'form-control', value: @user.email %>
+        <%= f.email_field :email, class: 'form-control', value: @user.email, maxlength: 80 %>
+        <div class="remaining"><span class="count"></span>/80</div>
       </div>
 
       <div class="form-group">
         <%= f.label :password, 'パスワード' %>
-        <span>※20文字以内</span>
         <%= f.password_field :password, class: 'form-control', maxlength:20 %>
+        <div class="remaining">※8〜20文字<span class="count"></span>/20</div>
       </div>
       <div class="form-group">
         <%= f.label :password_confirmation, 'パスワード確認' %>
-        <span>※20文字以内</span>
         <%= f.password_field :password_confirmation, class: 'form-control', maxlength:20 %>
+        <div class="remaining">※8〜20文字<span class="count"></span>/20</div>
       </div>
 
     <% else %>
 
       <div class="form-group">
         <%= f.label :name, '名前' %>
-        <%= f.text_field :name, class: 'form-control', value: @user.name, disabled: true %>
+        <%= f.text_field :name, class: 'form-control', value: @user.name, disabled: true, maxlength: 20 %>
+        <div class="remaining">
+          <span class="count"></span>/20</div>
       </div>
       <div class="form-group">
         <%= f.label :email, 'e-mail' %>
-        <%= f.email_field :email, class: 'form-control', value: @user.email, disabled: true %>
+        <%= f.email_field :email, class: 'form-control', value: @user.email, disabled: true, maxlength: 80 %>
+        <div class="remaining"><span class="count"></span>/80</div>
       </div>
 
     <% end %>
 
     <div class="form-group">
       <%= f.label :equipment, '機材' %>
-      <%= f.text_field :equipment, class: 'form-control', value: @user.equipment %>
+      <%= f.text_field :equipment, class: 'form-control', value: @user.equipment ,maxlength: 50 %>
+      <div class="remaining"><span class="count"></span>/50</div>
     </div>
 
     <div class="form-group">
       <%= f.label :genre, 'ジャンル' %>
-      <%= f.text_field :genre, class: 'form-control', value: @user.genre %>
+      <%= f.text_field :genre, class: 'form-control', value: @user.genre,maxlength: 50 %>
+      <div class="remaining"><span class="count"></span>/50</div>
     </div>
 
     <div class="form-group">
       <%= f.label :url, 'URL' %>
-      <%= f.url_field :url, class: 'form-control', value: @user.url %>
+      <%= f.url_field :url, class: 'form-control', value: @user.url, maxlength: 255 %>
+      <div class="remaining"><span class="count"></span>/255</div>
     </div>
 
     <div class="form-group">
       <%= f.label :self_introduction, '自己紹介' %>
-      <%= f.text_area :self_introduction, class: 'form-control', value: @user.self_introduction %>
+      <%= f.text_area :self_introduction, class: 'form-control', value: @user.self_introduction, maxlength: 255, rows: 8 %>
+      <div class="remaining"><span class="count"></span>/255</div>
     </div>
     <div class="form-group offset-5">
       <%= f.submit '更新する', class: 'btn btn-primary' %>

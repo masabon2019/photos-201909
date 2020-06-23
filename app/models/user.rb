@@ -32,8 +32,8 @@ class User < ApplicationRecord
   validates :equipment, length: { maximum: 50 }
   validates :genre, length: { maximum: 50 }
   validates :self_introduction, length: { maximum: 255 }
-  validates :password, presence: true, length: { minimum: 8 }, on: :create
-  validates :password, presence: true, length: { minimum: 8 }, on: :update,  allow_blank: true
+  validates :password, presence: true, length: { minimum: 8, maximum: 20 }, on: :create
+  validates :password, presence: true, length: { minimum: 8, maximum: 20 }, on: :update,  allow_blank: true
 
   has_secure_password
 
